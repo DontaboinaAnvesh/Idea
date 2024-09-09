@@ -1,0 +1,206 @@
+/* General header styles */
+.header-container {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem; /* Reduced padding */
+    color: var(--white-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and navigation */
+    box-sizing: border-box;
+}
+
+/* Logo styles */
+.logo {
+    text-align: left;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: var(--font-size-h4); /* Reduced font size */
+    color: var(--white-color);
+    font-family: 'Your Desired Font', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Reduced letter spacing */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Jumping animation for letters */
+.letter {
+    display: inline-block;
+    animation: jump 1s ease-in-out infinite;
+}
+
+
+/* Logo styles */
+.logo {
+    text-align: left;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: var(--font-size-h4); /* Reduced font size */
+    color: var(--white-color);
+    font-family: 'Your Desired Font', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px; /* Reduced letter spacing */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Jumping animation for letters */
+.letter {
+    display: inline-block;
+    animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px); /* Reduced jump height */
+    }
+}
+
+/* Animation delay for each letter */
+.letter:nth-child(1) { animation-delay: 0s; }
+.letter:nth-child(2) { animation-delay: 0.1s; }
+.letter:nth-child(3) { animation-delay: 0.2s; }
+.letter:nth-child(4) { animation-delay: 0.3s; }
+.letter:nth-child(5) { animation-delay: 0.4s; }
+.letter:nth-child(6) { animation-delay: 0.5s; }
+.letter:nth-child(7) { animation-delay: 0.6s; }
+.letter:nth-child(8) { animation-delay: 0.7s; }
+
+/* Navigation container */
+.nav-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    flex: 1;
+}
+
+/* Menu toggle button for mobile */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.menu-toggle .bar {
+    width: 20px; /* Reduced width */
+    height: 2px; /* Reduced height */
+    background-color: var(--white-color);
+    margin: 3px 0;
+}
+
+/* Navigation list styles */
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: center; /* Center navigation items */
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    margin: 0 20px; /* Reduced margin */
+}
+
+.nav-list a {
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: var(--font-size-h5); /* Reduced font size */
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #e7e2c7;
+}
+
+/* Responsive Design for mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Small box menu positioned in the right corner */
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%; /* Position the menu below the header */
+        right: 0.5rem; /* Align the menu to the right corner */
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        width: 180px; /* Smaller menu box */
+        padding: 8px; /* Reduced padding */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-list li {
+        margin: 8px 0; /* Reduced margin */
+    }
+
+    .logo h1 {
+        font-size: var(--font-size-h5); /* Adjust font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: var(--font-size-h6); /* Adjust font size for smaller screens */
+    }
+
+    .nav-list li {
+        margin: 5px 0;
+    }
+}
+
+/* Logout button styles */
+.logout-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.logout-button:hover {
+    color: #f00; /* Optional: Change color on hover */
+}
