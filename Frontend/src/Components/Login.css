@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
-
 :root {
   --white-color: #ffffff;
   --black-color: #000000;
@@ -33,7 +32,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
- 
 }
 
 .login-container {
@@ -50,12 +48,6 @@ h2 {
   font-weight: 700; /* Bold */
   color: #f56f00; /* Color */
   margin-bottom: 0.5rem; /* Margin */
-}
-h3 {
-  font-size: var(--font-size-h2); /* Keep this for size consistency */
-  font-weight: 700; /* Make it bold like in the image */
-  color: #f56f00; /* Update to a vibrant blue like in the image */
-  margin-bottom: 0.5rem; /* Slightly reduce the margin */
 }
 
 form {
@@ -101,6 +93,26 @@ button:hover {
 
 .link:hover {
   color: #e55b00;
+}
+
+/* Loading animation styles */
+.loading-animation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-animation img {
+  width: 100px; /* Set width for the buffering GIF */
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.loading-animation p {
+  font-size: var(--font-size-h5);
+  color: var(--text-color);
+  margin: 0;
 }
 
 @keyframes fadeIn {
