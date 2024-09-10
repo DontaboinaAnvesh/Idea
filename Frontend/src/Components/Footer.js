@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-section">
           <h2>Ideology</h2>
           <p>
-            Stay connected with us! Follow and subscribe to our social media platforms for regular updates on learning new skills. Happy Learning!
+            Stay connected with us! Follow and subscribe to our social media platforms for regular updates on new ideas and learn new skills.
           </p>
           <div className="social-icons">
             <a href="#"><i className="fab fa-facebook-f"></i></a>
@@ -24,7 +24,7 @@ const Footer = () => {
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#">Ideas</a></li>
             <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
@@ -42,14 +42,13 @@ const Footer = () => {
           <h3>More</h3>
           <ul>
             <li><a href="#">FAQ</a></li>
-            <li><a href="#">Campus Ambassador</a></li>
             <li><a href="#">Growth Community</a></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>Contacts</h3>
-          <p><i className="fas fa-phone-alt"></i> +91-08069277254</p>
+          <p><i className="fas fa-phone-alt"></i> +91-9390794872</p>
           <p><i className="fas fa-envelope"></i> support@ideology.com</p>
           <input type="email" placeholder="Enter Mail" />
           <button><i className="fas fa-arrow-right"></i></button>
