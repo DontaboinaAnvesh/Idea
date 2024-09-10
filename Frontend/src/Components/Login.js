@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import './Login.css'; // For styling
-import lightbulbGif from '../Images/idea-lightbulb.gif'; // Corrected path for the GIF
+import bufferingGif from '../Images/idea-lightbulb.gif'; // Add buffering GIF
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,47 +15,52 @@ const Login = () => {
     e.preventDefault();
     setLoading(true); // Start loading
 
-    const isAuthenticated = await login(email, password);
-    setLoading(false); // Stop loading after authentication
+    // Simulate a 5-second delay for buffering
+    setTimeout(async () => {
+      const isAuthenticated = await login(email, password);
+      setLoading(false); // Stop loading after authentication
 
-    if (isAuthenticated) {
-      navigate('/home'); // Redirect to home page on successful login
-    } else {
-      alert('Invalid email or password');
-    }
+      if (isAuthenticated) {
+        navigate('/home'); // Redirect to home page on successful login
+      } else {
+        alert('Invalid email or password');
+      }
+    }, 500); // 5-second buffering delay
   };
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          required
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          required
-        />
-        <button type="submit" disabled={loading}>Login</button>
-      </form>
-      
-      {loading && (
+      {loading ? (
         <div className="loading-animation">
-          <img src={lightbulbGif} alt="Loading..." /> {/* Use imported GIF */}
+          <img src={bufferingGif} alt="Buffering..." /> {/* Use buffering GIF */}
+          <p>Loading, please wait...</p>
         </div>
+      ) : (
+        <>
+          <h2>Login</h2>
+          <form onSubmit={handleLogin}>
+            <input 
+              type="email" 
+              placeholder="Email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required
+            />
+            <input 
+              type="password" 
+              placeholder="Password" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)} 
+              required
+            />
+            <button type="submit" disabled={loading}>Login</button>
+          </form>
+          <p>
+            Don't have an account? 
+            <span onClick={() => navigate('/signup')} className="link">Signup</span>
+          </p>
+        </>
       )}
-
-      <p>
-        Don't have an account? 
-        <span onClick={() => navigate('/signup')} className="link">Signup</span>
-      </p>
     </div>
   );
 };
