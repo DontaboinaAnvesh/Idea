@@ -1,19 +1,23 @@
-// src/Components/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import './Login.css'; // For styling
+import lightbulbGif from '../Images/idea-lightbulb.gif'; // Corrected path for the GIF
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false); // State to track loading
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
 
-    const isAuthenticated = login(email, password);
+    const isAuthenticated = await login(email, password);
+    setLoading(false); // Stop loading after authentication
+
     if (isAuthenticated) {
       navigate('/home'); // Redirect to home page on successful login
     } else {
@@ -39,8 +43,15 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)} 
           required
         />
-        <button type="submit">Login</button>
+        <button type="submit" disabled={loading}>Login</button>
       </form>
+      
+      {loading && (
+        <div className="loading-animation">
+          <img src={lightbulbGif} alt="Loading..." /> {/* Use imported GIF */}
+        </div>
+      )}
+
       <p>
         Don't have an account? 
         <span onClick={() => navigate('/signup')} className="link">Signup</span>
