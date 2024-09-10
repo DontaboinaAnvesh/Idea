@@ -24,17 +24,20 @@
 
 body {
   font-family: var(--font-family);
-  background-color: var(--layout-background-color);
+  background-image: url('../Images/lg2.jpeg'); /* Correct local image path */
+  background-size: cover;
+  background-position: center;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+ 
 }
 
 .login-container {
-  background-color: var(--white-color);
+  background-color: rgba(212, 211, 211, 0.7); /* Semi-transparent white */
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -43,9 +46,16 @@ body {
 }
 
 h2 {
-  font-size: var(--font-size-h2);
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+  font-size: var(--font-size-h2); /* Size consistency */
+  font-weight: 700; /* Bold */
+  color: #f56f00; /* Color */
+  margin-bottom: 0.5rem; /* Margin */
+}
+h3 {
+  font-size: var(--font-size-h2); /* Keep this for size consistency */
+  font-weight: 700; /* Make it bold like in the image */
+  color: #f56f00; /* Update to a vibrant blue like in the image */
+  margin-bottom: 0.5rem; /* Slightly reduce the margin */
 }
 
 form {
