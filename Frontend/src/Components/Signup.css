@@ -1,7 +1,7 @@
 /* Signup Page Styles */
 .signup-container {
     position: absolute;
-    background-color: var(--white-color);
+    background-color: rgba(212, 211, 211, 0.7); /* Semi-transparent white */
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
