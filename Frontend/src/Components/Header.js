@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate for navigation
-import { useAuth } from '../AuthContext'; // Import useAuth to access logout function
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext';
 import './Header.css';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track menu visibility
-  const { logout } = useAuth(); // Destructure the logout function from the auth context
-  const navigate = useNavigate(); // Hook to navigate programmatically
-  const logoText = 'Ideology'; // Your logo text
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logout, user } = useAuth(); // Access 'user' to check if authenticated
+  const navigate = useNavigate();
+  const logoText = 'Ideology';
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); // Toggle menu open/close state
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLogout = () => {
-    logout(); // Call logout function to clear user data
-    navigate('/login'); // Redirect to login page after logout
+    logout();
+    navigate('/login');
   };
 
   return (
@@ -37,9 +37,11 @@ const Header = () => {
             <li><Link to="/ideas-submit">Ideas</Link></li>
             <li><Link to="/ideas-gallery">Gallery</Link></li>
             <li><Link to="/about">About</Link></li>
+            {user && ( // Only show logout button if user is authenticated
+              <li><button onClick={handleLogout} className="logout-button">Logout</button></li>
+            )}
           </ul>
         </nav>
-        <button onClick={handleLogout} className="logout-button">Logout</button>
         <button className="menu-toggle" onClick={toggleMenu}>
           <div className="bar"></div>
           <div className="bar"></div>
