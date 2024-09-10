@@ -38,30 +38,6 @@
     animation: jump 1s ease-in-out infinite;
 }
 
-
-/* Logo styles */
-.logo {
-    text-align: left;
-}
-
-.logo h1 {
-    margin: 0;
-    font-size: var(--font-size-h4); /* Reduced font size */
-    color: var(--white-color);
-    font-family: 'Your Desired Font', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px; /* Reduced letter spacing */
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* Jumping animation for letters */
-.letter {
-    display: inline-block;
-    animation: jump 1s ease-in-out infinite;
-}
-
 @keyframes jump {
     0%, 100% {
         transform: translateY(0);
@@ -140,25 +116,56 @@
     color: #e7e2c7;
 }
 
-/* Responsive Design for mobile */
+/* Logout button styling for desktop */
+.logout-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 20px; /* Align it to the right corner */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* For Desktop (min-width: 769px) */
+@media (min-width: 769px) {
+    /* Logout button for desktop view */
+    .logout-button {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 10px;
+    }
+}
+
+/* For Mobile (max-width: 768px) */
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
     }
 
-    /* Small box menu positioned in the right corner */
+    /* Nav becomes hidden until toggled */
     .nav {
         display: none;
         position: absolute;
-        top: 100%; /* Position the menu below the header */
-        right: 0.5rem; /* Align the menu to the right corner */
+        top: 100%; /* Below the header */
+        right: 0.5rem; /* Align to the right */
         background-color: var(--primary-color);
         flex-direction: column;
         align-items: center;
-        width: 180px; /* Smaller menu box */
-        padding: 8px; /* Reduced padding */
-        border-radius: 8px; /* Rounded corners */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        width: 180px; /* Smaller box */
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .nav.open {
@@ -170,37 +177,80 @@
         align-items: center;
         padding: 0;
         margin: 0;
+        flex-grow: 1; /* This pushes the logout button down */
     }
 
     .nav-list li {
-        margin: 8px 0; /* Reduced margin */
+        margin: 4px 0;
+    }
+
+    /* Logout button inside the menu */
+    .logout-button {
+        margin: 15px 0;
+        font-size: var(--font-size-h5);
+        padding: 0.1px;
+        width: 100%;
+        text-align: center;
+        background-color: var(--primary-color); /* Ensures visibility */
+        position: relative;
+        bottom: 0;
+        margin-left: 20px;
     }
 
     .logo h1 {
-        font-size: var(--font-size-h5); /* Adjust font size for mobile */
+        font-size: var(--font-size-h5);
     }
 }
 
+/* For smaller screens (max-width: 480px) */
 @media (max-width: 480px) {
     .logo h1 {
-        font-size: var(--font-size-h6); /* Adjust font size for smaller screens */
+        font-size: var(--font-size-h6);
     }
 
     .nav-list li {
         margin: 5px 0;
     }
+
+    .logout-button {
+        font-size: var(--font-size-h5);
+    }
 }
 
-/* Logout button styles */
-.logout-button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 16px;
+/* About page specific styles */
+.about-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Make the page take full screen height */
+    padding-bottom: 80px; /* Leave space for the logout button */
+}
+
+.about-content {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Space between content and logout button */
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.about-content p {
+    font-size: 1rem;
+    color: var(--gray-color);
+}
+
+/* Logout button positioned at the bottom of the About page */
+.about-page .logout-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%; /* Full width at the bottom */
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 1rem;
     cursor: pointer;
-    padding: 10px;
-}
-
-.logout-button:hover {
-    color: #f00; /* Optional: Change color on hover */
 }
